@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 
 import 'package:flutter/services.dart';
 import 'package:mas_analitica/UI/botonUI.dart';
+import 'package:mas_analitica/paginas/paginaDatos.dart';
 
 import 'paginaFormulario.dart';
 
@@ -27,7 +28,7 @@ class PaginaInicial extends StatelessWidget{
 
            new BotonUI3(Color(0xff870839), new Text("Formularios"), () => Navigator.of(context).push(new MaterialPageRoute(builder: (BuildContext context) => new PaginaFormulario()))),
 
-           new BotonUI3(Color(0xffC70C54), new Text("PDF"), null)
+           new BotonUI3(Color(0xffC70C54), new Text("Datos"), ()  => Navigator.of(context).push(new MaterialPageRoute(builder: (BuildContext context) => new PaginaDatos())))
           
         ],
       )
