@@ -42,7 +42,7 @@ class PaginaDatosEstado extends State<PaginaDatos>
                    { // get file from local store
                   final String dir =
                       (await getApplicationDocumentsDirectory()).path;
-                  final String path = '$dir/data.txt';
+                  final String path = '$dir/data.csv';
 
                   ShareExtend.share(path, "file");
                  },

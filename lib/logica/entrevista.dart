@@ -14,7 +14,14 @@ class Entrevista
 List <String> _listaDeDatos;
 
 /// Atributo que guarda el string a persistir
-String persistencia;
+String persistencia = "";
+
+/// Atributo que guarda el string ya presente en el archivo
+String anterior = "";
+
+/// Atributo que dice si ya existia un archivo precio
+bool existe = false;
+
 
 //-----------------------------------------------------------------------------------------------
 // Constructor
@@ -76,53 +83,54 @@ bool verificar()
 
 // Metodo que guarda los datos en eun archivo
 persistir() async {
-  _formatear();
+  await _read();
+  _formatear(anterior);
   final directory = await getApplicationDocumentsDirectory();
-  final file = File('${directory.path}/data.txt');
-  print('${directory.path}/data.txt');
+  final file = File('${directory.path}/data.csv');
   await file.writeAsString(persistencia);
+  
+}
+
+ _read() async {
+  String text;
+  try {
+    final directory = await getApplicationDocumentsDirectory();
+    final file = File('${directory.path}/data.csv');
+    text = await file.readAsString();
+  } catch (e) {
+    existe = false;
+    print("Couldn't read file");
+ 
+  }
+    anterior = text;
+  existe = true;
+
 }
 
 
 /// Metodo que formatea el texto a persistir
  
-void _formatear()
+void _formatear(String anterior)
 {
-  persistencia =
-  "//----------------------------" + '\n'  
-  + "Información Encuestador:" + '\n'
-  + "//----------------------------" + '\n' + '\n' 
-  + "Nombre del jefe de vereda: " + _listaDeDatos[0] + '\n' 
-  + "Nombre de la vereda: " + _listaDeDatos[1] + '\n'+ '\n' 
 
-  + "//----------------------------" + '\n' 
-  + "Información Encuestado:" + '\n'
-  + "//----------------------------" + '\n' + '\n' 
+  String nuevosDatos = "";
+  if(!existe)
+  {
+    persistencia =
+  "Nombre del jefe de vereda;Nombre de la vereda;Nombre de 1 de las personas visitadas;Sexo;Celular;Edad;Ocupacion;"
+  +"¿Posee servicio de energía eléctrica?;¿Posee servicio de Gas Natural?;¿Posee servicio de acueducto, Alcantarillado y Recolección de Basuras?;"
+  +"¿Posee servicio de Telefonía e Internet (fija o móvil) ?;¿Algúno tiene una enfermedad grave?;¿Hay escuelas cercanas?;¿Hay formas de transportarse?;"
+  +"¿Medio de informacion que utilizan mas usado?;¿Hay organizaciones de la sociedad civil?;¿Existen actividades culturales?;Comentarios" + '\n';
+  }
 
-  + "Nombre de 1 de las personas visitadas: " + _listaDeDatos[2] + '\n'
-  + "Sexo: " + _listaDeDatos[3] + '\n'
-  + "Celular: " + _listaDeDatos[4] + '\n'
-  + "Edad: " + _listaDeDatos[5] + '\n'
-  + "Ocupacion: " + _listaDeDatos[6] + '\n'+ '\n' 
+  for (int i = 0; i<18;i++)
+  {
+    nuevosDatos += (_listaDeDatos[i] + ";");
+  }
 
-  +"//----------------------------" + '\n' 
-  + "Situación:" + '\n'
-  + "//----------------------------" + '\n' + '\n' 
+  persistencia += (anterior  + nuevosDatos +'\n');
 
 
-  + "¿Posee servicio de energía eléctrica?: " + _listaDeDatos[7] + '\n'
-  + "¿Posee servicio de Gas Natural?: " + _listaDeDatos[8] + '\n'
-  + "¿Posee servicio de acueducto, Alcantarillado y Recolección de Basuras: " + _listaDeDatos[9] + '\n'
-  + "¿Posee servicio de Telefonía e Internet (fija o móvil) ?: " + _listaDeDatos[10] + '\n'
-  + "¿Algúno tiene una enfermedad grave?: " + _listaDeDatos[11] + '\n'
-  + "¿Hay escuelas cercanas?: " + _listaDeDatos[12] + '\n'
-  + "¿Hay formas de transportarse?: " + _listaDeDatos[13] + '\n'
-  + "¿Medio de informacion que utilizan mas?: " + _listaDeDatos[14] + '\n'
-  + "¿Hay organizaciones de la sociedad civil?" + _listaDeDatos[15] + '\n'
-  + "¿Existen actividades culturales?: " + _listaDeDatos[16] + '\n'
-  + "Comentarios: " + _listaDeDatos[17] + '\n'
-
-  ; 
 }
 
 

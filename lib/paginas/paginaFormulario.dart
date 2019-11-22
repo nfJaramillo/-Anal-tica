@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:mas_analitica/UI/formularioUI.dart';
 import 'package:mas_analitica/logica/entrevista.dart';
+import 'package:mas_analitica/paginas/paginaInicial.dart';
 
 
 
@@ -53,17 +54,15 @@ class _PaginaFormularioState2 extends State<PaginaFormularioState> {
                 padding: const EdgeInsets.fromLTRB(16, 40, 16, 20),
                 children: <Widget>[
 
-                Align(alignment: Alignment.centerLeft,
-                child: FittedBox(fit:BoxFit.scaleDown, child: new Text("Información Encuestador:", style: TextStyle(fontSize: MediaQuery.of(context).size.width * .07, fontWeight: FontWeight.bold, color: Color(0xff4D4D4D)))),
-                ),
+                
 
-              new FormularioUITextoInformativo("Información Encuestador:", Color(0xff4D4D4D)),
+              new FormularioUITextoInformativo("Información Encuestador:", Color(0xff870839)),
 
               new FormularioUITexto('Escribe nombre y apellido', 'Nombre del jefe de vereda', _entrevista, Icon(Icons.person),0 ),
 
               new FormularioUITexto('', 'Nombre de la vereda', _entrevista, Icon(Icons.image),1),
 
-              new FormularioUITextoInformativo("Información Encuestado:", Color(0xff4D4D4D)),
+              new FormularioUITextoInformativo("Información Encuestado:", Color(0xff870839)),
 
               new FormularioUITexto('Escribe nombre y apellido', 'Nombre de 1 de las personas visitadas', _entrevista, Icon(Icons.person_outline), 2),
 
@@ -75,7 +74,7 @@ class _PaginaFormularioState2 extends State<PaginaFormularioState> {
 
               new FormularioUITexto("", 'Ocupacion', _entrevista, Icon(Icons.business_center), 6),
 
-              new FormularioUITextoInformativo("Situación:", Color(0xff4D4D4D)),
+              new FormularioUITextoInformativo("Situación:", Color(0xff870839)),
 
               new  FormularioUIEleccionMultiple(_siOnoOpciones, '¿Posee servicio de energía eléctrica?', _entrevista, Icon(Icons.power), 7),
 
@@ -132,8 +131,10 @@ class _PaginaFormularioState2 extends State<PaginaFormularioState> {
         toastLength: Toast.LENGTH_SHORT,
         gravity: ToastGravity.CENTER,
         timeInSecForIos: 1);
-        Navigator.pop(context);
-    }
+        
+        Navigator.of(context).pushAndRemoveUntil(new MaterialPageRoute(builder: (BuildContext context) => new PaginaInicial()), (Route route) => route == null);
+  }
+
     else{
   Fluttertoast.showToast(
         msg: "Faltan preguntas por contestar",
