@@ -17,23 +17,22 @@ class PaginaDatosEstado extends State<PaginaDatos>
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-    body: new Column(
-      children: <Widget>[
+    body: new Center(
 
-        Card(
+        child: Card(
       child: Column(
         mainAxisSize: MainAxisSize.min,
         children: <Widget>[
           const ListTile(
-            leading: Icon(Icons.album),
-            title: Text('The Enchanted Nightingale'),
-            subtitle: Text('Music by Julie Gable. Lyrics by Sidney Stein.'),
+            leading: Icon(Icons.equalizer),
+            title: Text('Datos recogidos en las encuestas'),
+            subtitle: Text('Formato csv'),
           ),
           ButtonTheme.bar( // make buttons use the appropriate styles for cards
             child: ButtonBar(
               children: <Widget>[
                 FlatButton(
-                  child: const Text('BUY TICKETS'),
+                  child: const Text('Ver'),
                   onPressed: () { /* ... */ },
                 ),
                 FlatButton(
@@ -53,8 +52,6 @@ class PaginaDatosEstado extends State<PaginaDatos>
         ],
       ),
     ),
-        
-      ],
     )
   );
 }

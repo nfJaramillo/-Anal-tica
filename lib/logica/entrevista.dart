@@ -91,6 +91,7 @@ persistir() async {
   
 }
 
+/// Metodo que lee los datos anteriores en el archivo
  _read() async {
   String text;
   try {
