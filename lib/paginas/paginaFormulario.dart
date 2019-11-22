@@ -3,6 +3,8 @@ import 'package:flutter/services.dart';
 import 'dart:io';
 
 import 'package:fluttertoast/fluttertoast.dart';
+import 'package:mas_analitica/paginas/paginaInicial.dart';
+import 'package:path_provider/path_provider.dart';
 
 
 
@@ -17,6 +19,7 @@ class PaginaFormulario extends StatelessWidget {
       home: new MyHomePage(title: ''),
     );
   }
+
 }
 
 class MyHomePage extends StatefulWidget {
@@ -52,9 +55,7 @@ class _MyHomePageState extends State<MyHomePage> {
            VoidCallback _call = null;
            String resp = "";
 
-  Future<File> get _localFile async {
-  return File('assets/counter.txt');
-}
+  
 
   @override
   Widget build(BuildContext context) {
@@ -548,8 +549,15 @@ class _MyHomePageState extends State<MyHomePage> {
 
           if(_cultura.length != 0)
         {
-          print("listo");
-         // return;
+          //persistir();
+           Fluttertoast.showToast(
+        msg: "Se guardo la encuesta",
+        toastLength: Toast.LENGTH_SHORT,
+        gravity: ToastGravity.CENTER,
+        timeInSecForIos: 1
+    );
+         //() => Navigator.of(context).push(new MaterialPageRoute(builder: (BuildContext context) => new PaginaInicial()));
+         return;
         }
         }
         }
@@ -566,6 +574,7 @@ class _MyHomePageState extends State<MyHomePage> {
         }
       }
     }
+    _persistir("asd");
   Fluttertoast.showToast(
         msg: "Faltan preguntas por contestar",
         toastLength: Toast.LENGTH_SHORT,
@@ -574,8 +583,27 @@ class _MyHomePageState extends State<MyHomePage> {
     );
   }
 
-  Future persistir () async {
-    final file = await _localFile;
-    //file.writeAsString();
+  
+
+_persistir(String text) async {
+  final directory = await getApplicationDocumentsDirectory();
+  final file = File('${directory.path}/data.txt');
+  print('${directory.path}/data.txt');
+  await file.writeAsString(text);
+  _read();
+}
+
+Future<String> _read() async {
+  String text;
+  try {
+    final directory = await getApplicationDocumentsDirectory();
+    final file = File('${directory.path}/data.txt');
+    text = await file.readAsString();
+  } catch (e) {
+    print("Couldn't read file");
   }
+  print("AAAA!"+text);
+  return text;
+}
+
 }
