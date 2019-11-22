@@ -35,6 +35,7 @@ Entrevista ()
   {
     _listaDeDatos[i]="";
   }
+  
 }
 
 //-----------------------------------------------------------------------------------------------
@@ -123,20 +124,24 @@ void _formatear(String anterior)
 {
 
   String nuevosDatos = "";
-  if(!existe)
+  persistencia = "";
+  if(anterior == null)
   {
     persistencia =
   "Nombre del jefe de vereda;Nombre de la vereda;Nombre de 1 de las personas visitadas;Sexo;Celular;Edad;Ocupacion;"
   +"¿Posee servicio de energía eléctrica?;¿Posee servicio de Gas Natural?;¿Posee servicio de acueducto, Alcantarillado y Recolección de Basuras?;"
   +"¿Posee servicio de Telefonía e Internet (fija o móvil) ?;¿Algúno tiene una enfermedad grave?;¿Hay escuelas cercanas?;¿Hay formas de transportarse?;"
   +"¿Medio de informacion que utilizan mas usado?;¿Hay organizaciones de la sociedad civil?;¿Existen actividades culturales?;Comentarios" + '\n';
+
+  anterior = "";
   }
 
   for (int i = 0; i<18;i++)
   {
     nuevosDatos += (_listaDeDatos[i] + ";");
   }
-
+    
+  
   persistencia += (anterior  + nuevosDatos +'\n');
 
 

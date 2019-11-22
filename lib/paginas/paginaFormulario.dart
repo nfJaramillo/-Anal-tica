@@ -103,6 +103,7 @@ class _PaginaFormularioState2 extends State<PaginaFormularioState> {
                       child: new RaisedButton(
                         child: const Text('Enviar'),
                         color: Color(0xffC70C54),
+                        textColor: Colors.white,
                         onPressed: () => _guardar(),
                         
                       )),
