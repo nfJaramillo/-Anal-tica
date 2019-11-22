@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
-import 'dart:io';
+
 
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:mas_analitica/UI/formularioUI.dart';
 import 'package:mas_analitica/logica/entrevista.dart';
-import 'package:path_provider/path_provider.dart';
+
 
 
 
@@ -126,7 +126,7 @@ class _PaginaFormularioState2 extends State<PaginaFormularioState> {
 
     if(_entrevista.verificar())
     {
-        _persistir("umm luego");
+        _entrevista.persistir();
            Fluttertoast.showToast(
         msg: "Se guardo la encuesta",
         toastLength: Toast.LENGTH_SHORT,
@@ -135,7 +135,6 @@ class _PaginaFormularioState2 extends State<PaginaFormularioState> {
         Navigator.pop(context);
     }
     else{
-        _persistir("Sin nada");
   Fluttertoast.showToast(
         msg: "Faltan preguntas por contestar",
         toastLength: Toast.LENGTH_SHORT,
@@ -148,26 +147,4 @@ class _PaginaFormularioState2 extends State<PaginaFormularioState> {
   }
 
   
-/// Metodo que guarda los datos en eun archivo
-_persistir(String text) async {
-  final directory = await getApplicationDocumentsDirectory();
-  final file = File('${directory.path}/data.txt');
-  print('${directory.path}/data.txt');
-  await file.writeAsString(text);
-  _read();
-}
-
-Future<String> _read() async {
-  String text;
-  try {
-    final directory = await getApplicationDocumentsDirectory();
-    final file = File('${directory.path}/data.txt');
-    text = await file.readAsString();
-  } catch (e) {
-    print("Couldn't read file");
-  }
-  print("AAAA!"+text);
-  return text;
-}
-
 }
