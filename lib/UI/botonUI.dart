@@ -137,16 +137,24 @@ class BotonUI3 extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return new Padding(
-       padding: EdgeInsets.all(MediaQuery.of(context).size.width * .01),
+       padding: EdgeInsets.fromLTRB(MediaQuery.of(context).size.width * .1, MediaQuery.of(context).size.width * .1, MediaQuery.of(context).size.width * .1, 0),
       child: new Material(
-          color: _elColor,
+        child: new Container(
+   
+    decoration: new BoxDecoration(
+      
+      border: new Border.all(color: Colors.white, width: 2.0),
+      borderRadius: new BorderRadius.circular(10.0),
+      color: _elColor,
+    ),
+          
           child: new InkWell(
             onTap: () => _onTap(),
             child: new Center(
                 child: new Container(
-              decoration: new BoxDecoration(
-                  border: new Border.all(color: Colors.white, width: MediaQuery.of(context).size.width * .01)),
-              padding: new EdgeInsets.all(MediaQuery.of(context).size.width * .01),
+              //decoration: new BoxDecoration(
+                  //border: new Border.all(color: Colors.white, width: MediaQuery.of(context).size.width * .01)),
+              padding: new EdgeInsets.all(MediaQuery.of(context).size.width * .05),
               child: new Text(_texto.data,
                   style: new TextStyle(
                       color: Colors.white,
@@ -155,6 +163,6 @@ class BotonUI3 extends StatelessWidget {
                       fontStyle: FontStyle.italic)),
             )),
           )),
-    );
+    ));
   }
 }

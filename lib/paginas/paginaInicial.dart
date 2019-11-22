@@ -7,44 +7,25 @@ import 'package:mas_analitica/UI/botonUI.dart';
 class PaginaInicial extends StatelessWidget{
   @override
 
-    // Fuerza a la aplicacion a arracar en modo horizontal
+    // Fuerza a la aplicacion a arracar en modo vertical
     Widget build(BuildContext context){
     SystemChrome.setPreferredOrientations([
-    DeviceOrientation.landscapeLeft,
-    DeviceOrientation.landscapeRight,
+    DeviceOrientation.portraitUp,
     
     ]);
 
-    return new Material(color: Colors.yellow[700], // Un material es como una hoja de papel encima de la pantalla
+    return new Material(color: Colors.white, // Un material es como una hoja de papel encima de la pantalla
      child: new Column(
         mainAxisAlignment: MainAxisAlignment.center, // Centra lo de la columna en el ejer y
         children: <Widget>[
-          new Padding(
-            padding:  EdgeInsets.all(MediaQuery.of(context).size.width * .05), // Añade espacio entre los textos
-            ),
-           FittedBox(fit:BoxFit.cover, child: new Text("+Analítica", style: TextStyle(fontSize: 100, fontWeight: FontWeight.bold, color: Colors.white))),
-            new Padding(
-            padding:  EdgeInsets.all(MediaQuery.of(context).size.width * .05), // Añade espacio entre los textos
-            ),
-            Expanded(
-              child:new Row(
-            children: <Widget>[
-               new Padding(
-            padding:  EdgeInsets.all(MediaQuery.of(context).size.width * .05), // Añade espacio entre los textos
-            ),
-              new BotonUI(Colors.purpleAccent[400], new Text("Lecturas",style: TextStyle(fontSize: 75,fontWeight: FontWeight.bold)), () => Navigator.of(context).push(new MaterialPageRoute(builder: (BuildContext context) => null))), // Boton lecturas
-             new Padding(
-            padding:  EdgeInsets.all(MediaQuery.of(context).size.width * .05), // Añade espacio entre los textos
-            ),
-              new BotonUI(Colors.purple[600], new Text("Preguntas",style: TextStyle(fontSize: 75, fontWeight: FontWeight.bold)), () => Navigator.of(context).push(new MaterialPageRoute(builder: (BuildContext context) => null))), // Boton quiz
-              new Padding(
-            padding:  EdgeInsets.all(MediaQuery.of(context).size.width * .05), // Añade espacio entre los textos
-            ),
-            
-                  ],
-                  
-              ) ,
-            )
+
+            new Image.asset("assets/logo.png",height: MediaQuery.of(context).size.width * .5,fit: BoxFit.cover,),
+
+           FittedBox(fit:BoxFit.scaleDown, child: new Text("Analítica", style: TextStyle(fontSize: MediaQuery.of(context).size.width * .1, fontWeight: FontWeight.bold, color: Color(0xff4D4D4D)))),
+
+           new BotonUI3(Color(0xff870839), new Text("Formularios"), null),
+
+           new BotonUI3(Color(0xffC70C54), new Text("PDF"), null)
           
         ],
       )
