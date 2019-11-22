@@ -45,7 +45,7 @@ class FormularioUITexto extends StatelessWidget {
                     decoration:  InputDecoration(
                       icon:  _icono,
                       hintText: _hintText,
-                      labelText: _labelText,
+                      labelText: _labelText ,
                     ),
                     onSaved: (val) => _entrevista.ingresarDato(_posicion, val),
                   );
