@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'dart:io';
+
 
 
 class PaginaFormulario extends StatelessWidget {
@@ -28,8 +30,13 @@ class _MyHomePageState extends State<MyHomePage> {
   List<String> _colors = <String>['Si', 'No',""];
   List<String> _sexos = <String>['Mujer', 'Hombre',"" ];
   List<String> _medios = <String>['Radio', 'Diarios y revistas',"T.V.","Internet","" ];
-  String _color = '';
+  String _nombre1 = "";
+  String _nombreVereda = "";
+  String _nombre2 = "";
   String _sexo = '';
+  String _celular = "";
+  String _edad = "";
+  String _ocupacion = "";
    String _electricidad = '';
     String _gas = '';
      String _agua = '';
@@ -39,6 +46,13 @@ class _MyHomePageState extends State<MyHomePage> {
          String _informacion = '';
           String _sociedad = '';
            String _cultura = '';
+           String _comentarios = "";
+           VoidCallback _call = null;
+           String resp = "";
+
+  Future<File> get _localFile async {
+  return File('assets/counter.txt');
+}
 
   @override
   Widget build(BuildContext context) {
@@ -65,6 +79,7 @@ class _MyHomePageState extends State<MyHomePage> {
                       hintText: 'Escribe nombre y apellido',
                       labelText: 'Nombre del jefe de vereda',
                     ),
+                    onSaved: (val) => _nombre1 = val,
                   ),
                   new TextFormField(
                     decoration: const InputDecoration(
@@ -72,6 +87,7 @@ class _MyHomePageState extends State<MyHomePage> {
                       hintText: '',
                       labelText: 'Nombre de la vereda',
                     ),
+                    onSaved: (val) => _nombreVereda = val,
                   ),
 
 
@@ -93,6 +109,7 @@ class _MyHomePageState extends State<MyHomePage> {
                       labelText: 'Nombre de 1 de las personas visitadas',
                       
                     ),
+                    onSaved: (val) => _nombre2 = val,
                   ),
 
                   new FormField(
@@ -136,6 +153,7 @@ class _MyHomePageState extends State<MyHomePage> {
                     inputFormatters: [
                       WhitelistingTextInputFormatter.digitsOnly,
                     ],
+                    onSaved: (val) => _celular = val,
                   ),
                    new TextFormField(
                     decoration: const InputDecoration(
@@ -147,6 +165,7 @@ class _MyHomePageState extends State<MyHomePage> {
                     inputFormatters: [
                       WhitelistingTextInputFormatter.digitsOnly,
                     ],
+                    onSaved: (val) => _edad = val,
                   ),
                    new TextFormField(
                     decoration: const InputDecoration(
@@ -155,6 +174,7 @@ class _MyHomePageState extends State<MyHomePage> {
                       labelText: 'Ocupacion',
                     ),
                     keyboardType: TextInputType.emailAddress,
+                    onSaved: (val) => _ocupacion = val,
                   ),
 
 
@@ -463,6 +483,7 @@ class _MyHomePageState extends State<MyHomePage> {
                       labelText: 'Comentarios',
                     ),
                     keyboardType: TextInputType.emailAddress,
+                    onSaved: (val) => _comentarios = val,
                   ),
 
                   
@@ -472,13 +493,82 @@ class _MyHomePageState extends State<MyHomePage> {
 
                
                   new Container(
-                      padding: const EdgeInsets.only(left: 40.0, top: 20.0),
+                      padding: const EdgeInsets.only(left: 0, top: 20.0),
                       child: new RaisedButton(
-                        child: const Text('Submit'),
-                        onPressed: null,
+                        child: const Text('Enviar'),
+                        color: Color(0xffC70C54),
+                        onPressed: () => _guardar(),
+                        
                       )),
                 ],
               ))),
     );
+  }
+
+  void _guardar() {
+  
+    final FormState form = _formKey.currentState;
+     if(form != null)
+    form.save();
+
+ 
+    if(_nombre1.length!=0)
+    {
+      
+      if(_nombreVereda.length != 0)
+      {
+        if(_nombre2.length != 0)
+        {
+           if(_sexo.length != 0)
+        {
+           if(_celular.length != 0)
+        {
+          if(_edad.length != 0)
+        {
+          if(_ocupacion.length != 0)
+        {
+          if(_electricidad.length != 0)
+        {
+          if(_gas.length != 0)
+        {
+          if(_agua.length != 0)
+        {
+          if(_internet.length != 0)
+        {
+          if(_escuelas.length != 0)
+        {
+          if(_transporte.length != 0)
+        {
+          if(_informacion.length != 0)
+        {
+          if(_sociedad.length != 0)
+        {
+
+          if(_cultura.length != 0)
+        {
+          print("listo");
+         // return;
+        }
+        }
+        }
+        }
+        }
+        }
+        }
+        }
+        }
+        }
+        }
+        }
+        }
+        }
+      }
+    }
+  print("FALTA");
+  }
+
+  Future persistir () async {
+    final file = await _localFile;
+    //file.writeAsString();
   }
 }
