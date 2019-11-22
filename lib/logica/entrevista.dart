@@ -86,7 +86,15 @@ persistir() async {
   await _read();
   _formatear(anterior);
   final directory = await getApplicationDocumentsDirectory();
-  final file = File('${directory.path}/data.csv');
+  File file;
+  if(!existe)
+  {
+     file = new File('${directory.path}/data.csv');
+  }
+  else{
+     file = File('${directory.path}/data.csv');
+  }
+  
   await file.writeAsString(persistencia);
   
 }

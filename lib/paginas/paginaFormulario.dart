@@ -2,9 +2,9 @@ import 'package:flutter/material.dart';
 
 
 import 'package:fluttertoast/fluttertoast.dart';
-import 'package:mas_analitica/UI/formularioUI.dart';
-import 'package:mas_analitica/logica/entrevista.dart';
-import 'package:mas_analitica/paginas/paginaInicial.dart';
+import 'package:Analitica/UI/formularioUI.dart';
+import 'package:Analitica/logica/entrevista.dart';
+import 'package:Analitica/paginas/paginaInicial.dart';
 
 
 

@@ -1,6 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:mas_analitica/UI/botonUI.dart';
+import 'package:Analitica/UI/botonUI.dart';
 import 'package:path_provider/path_provider.dart';
 import 'package:share_extend/share_extend.dart';
 
@@ -29,7 +29,7 @@ class PaginaDatosEstado extends State<PaginaDatos>
         new BotonUI3(Color(0xff870839), new Text("Ver y editar"), null ), // Boton que lleva al formulario
 
 
-         new BotonUI3(Color(0xff870839), new Text("Compartir"), 
+         new BotonUI3(Color(0xffC70C54), new Text("Compartir"), 
           () async
                    { // get file from local store
                   final String dir =

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:mas_analitica/logica/entrevista.dart';
+import 'package:Analitica/logica/entrevista.dart';
 
 
 class FormularioUITexto extends StatelessWidget {

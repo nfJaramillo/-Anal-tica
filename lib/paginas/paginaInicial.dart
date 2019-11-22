@@ -2,8 +2,8 @@
 import 'package:flutter/material.dart';
 
 import 'package:flutter/services.dart';
-import 'package:mas_analitica/UI/botonUI.dart';
-import 'package:mas_analitica/paginas/paginaDatos.dart';
+import 'package:Analitica/UI/botonUI.dart';
+import 'package:Analitica/paginas/paginaDatos.dart';
 
 import 'paginaFormulario.dart';
 
