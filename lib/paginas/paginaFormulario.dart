@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'dart:io';
 
+import 'package:fluttertoast/fluttertoast.dart';
+
 
 
 class PaginaFormulario extends StatelessWidget {
@@ -564,7 +566,12 @@ class _MyHomePageState extends State<MyHomePage> {
         }
       }
     }
-  print("FALTA");
+  Fluttertoast.showToast(
+        msg: "Faltan preguntas por contestar",
+        toastLength: Toast.LENGTH_SHORT,
+        gravity: ToastGravity.CENTER,
+        timeInSecForIos: 1
+    );
   }
 
   Future persistir () async {
