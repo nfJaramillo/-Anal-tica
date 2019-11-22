@@ -22,13 +22,13 @@ class PaginaInicial extends StatelessWidget{
         mainAxisAlignment: MainAxisAlignment.center, // Centra lo de la columna en el ejer y
         children: <Widget>[
 
-            new Image.asset("assets/logo.png",height: MediaQuery.of(context).size.width * .5,fit: BoxFit.cover,),
+            new Image.asset("assets/logo.png",height: MediaQuery.of(context).size.width * .5,fit: BoxFit.cover,), // Pone el logo de +C
         
-           FittedBox(fit:BoxFit.scaleDown, child: new Text("Analítica", style: TextStyle(fontSize: MediaQuery.of(context).size.width * .1, fontWeight: FontWeight.bold, color: Color(0xff4D4D4D)))),
+           FittedBox(fit:BoxFit.scaleDown, child: new Text("Analítica", style: TextStyle(fontSize: MediaQuery.of(context).size.width * .1, fontWeight: FontWeight.bold, color: Color(0xff4D4D4D)))), // Pone el texto debajo del logo
 
-           new BotonUI3(Color(0xff870839), new Text("Formularios"), () => Navigator.of(context).push(new MaterialPageRoute(builder: (BuildContext context) => new PaginaFormulario()))),
+           new BotonUI3(Color(0xff870839), new Text("Formularios"), () => Navigator.of(context).push(new MaterialPageRoute(builder: (BuildContext context) => new PaginaFormulario()))), // Boton que lleva al formulario
 
-           new BotonUI3(Color(0xffC70C54), new Text("Datos"), ()  => Navigator.of(context).push(new MaterialPageRoute(builder: (BuildContext context) => new PaginaDatos())))
+           new BotonUI3(Color(0xffC70C54), new Text("Datos"), ()  => Navigator.of(context).push(new MaterialPageRoute(builder: (BuildContext context) => new PaginaDatos()))) // Boton que lleva a los datos
           
         ],
       )

@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'dart:io';
 
 import 'package:fluttertoast/fluttertoast.dart';
-import 'package:mas_analitica/paginas/paginaInicial.dart';
+import 'package:mas_analitica/UI/formularioUI.dart';
+import 'package:mas_analitica/logica/entrevista.dart';
 import 'package:path_provider/path_provider.dart';
 
 
@@ -16,45 +16,26 @@ class PaginaFormulario extends StatelessWidget {
       theme: new ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: new MyHomePage(title: ''),
+      home: new PaginaFormularioState(title: ''),
     );
   }
 
 }
 
-class MyHomePage extends StatefulWidget {
-  MyHomePage({Key key, this.title}) : super(key: key);
+class PaginaFormularioState extends StatefulWidget {
+  PaginaFormularioState({Key key, this.title}) : super(key: key);
   final String title;
 
   @override
-  _MyHomePageState createState() => new _MyHomePageState();
+  _PaginaFormularioState2 createState() => new _PaginaFormularioState2();
 }
 
-class _MyHomePageState extends State<MyHomePage> {
+class _PaginaFormularioState2 extends State<PaginaFormularioState> {
   final GlobalKey<FormState> _formKey = new GlobalKey<FormState>();
-  List<String> _colors = <String>['Si', 'No',""];
+  List<String> _siOnoOpciones = <String>['Si', 'No',""];
   List<String> _sexos = <String>['Mujer', 'Hombre',"" ];
   List<String> _medios = <String>['Radio', 'Diarios y revistas',"T.V.","Internet","" ];
-  String _nombre1 = "";
-  String _nombreVereda = "";
-  String _nombre2 = "";
-  String _sexo = '';
-  String _celular = "";
-  String _edad = "";
-  String _ocupacion = "";
-   String _electricidad = '';
-    String _gas = '';
-     String _agua = '';
-      String _internet = '';
-       String _escuelas = '';
-        String _transporte = '';
-         String _informacion = '';
-          String _sociedad = '';
-           String _cultura = '';
-           String _comentarios = "";
-           VoidCallback _call = null;
-           String resp = "";
-
+  Entrevista _entrevista = new Entrevista();
   
 
   @override
@@ -76,425 +57,48 @@ class _MyHomePageState extends State<MyHomePage> {
                 child: FittedBox(fit:BoxFit.scaleDown, child: new Text("Información Encuestador:", style: TextStyle(fontSize: MediaQuery.of(context).size.width * .07, fontWeight: FontWeight.bold, color: Color(0xff4D4D4D)))),
                 ),
 
-                  new TextFormField(
-                    decoration: const InputDecoration(
-                      icon: const Icon(Icons.person),
-                      hintText: 'Escribe nombre y apellido',
-                      labelText: 'Nombre del jefe de vereda',
-                    ),
-                    onSaved: (val) => _nombre1 = val,
-                  ),
-                  new TextFormField(
-                    decoration: const InputDecoration(
-                      icon: const Icon(Icons.image),
-                      hintText: '',
-                      labelText: 'Nombre de la vereda',
-                    ),
-                    onSaved: (val) => _nombreVereda = val,
-                  ),
+              new FormularioUITextoInformativo("Información Encuestador:", Color(0xff4D4D4D)),
 
+              new FormularioUITexto('Escribe nombre y apellido', 'Nombre del jefe de vereda', _entrevista, Icon(Icons.person),0 ),
 
-                  new Padding(
-            padding:  EdgeInsets.all(MediaQuery.of(context).size.width * .02), // Añade espacio entre los textos
-            ),
+              new FormularioUITexto('', 'Nombre de la vereda', _entrevista, Icon(Icons.image),1),
 
-                   Align(alignment: Alignment.centerLeft,
-                child: FittedBox(fit:BoxFit.scaleDown, child: new Text("Información Encuestado:", style: TextStyle(fontSize: MediaQuery.of(context).size.width * .07, fontWeight: FontWeight.bold, color: Color(0xff4D4D4D)))),
-                ),
-                new Padding(
-            padding:  EdgeInsets.all(MediaQuery.of(context).size.width * .01), // Añade espacio entre los textos
-            ),
+              new FormularioUITextoInformativo("Información Encuestado:", Color(0xff4D4D4D)),
 
-                  new TextFormField(
-                    decoration: const InputDecoration(
-                      icon: const Icon(Icons.person_outline),
-                      hintText: 'Escribe nombre y apellido',
-                      labelText: 'Nombre de 1 de las personas visitadas',
-                      
-                    ),
-                    onSaved: (val) => _nombre2 = val,
-                  ),
+              new FormularioUITexto('Escribe nombre y apellido', 'Nombre de 1 de las personas visitadas', _entrevista, Icon(Icons.person_outline), 2),
 
-                  new FormField(
-                    builder: (FormFieldState state) {
-                      return InputDecorator(
-                        decoration: InputDecoration(
-                          icon: const Icon(Icons.person_pin_circle),
-                          labelText: 'Sexo',
-                        ),
-                        isEmpty: _sexo == '',
-                        child: new DropdownButtonHideUnderline(
-                          child: new DropdownButton(
-                            value: _sexo,
-                            isDense: true,
-                            onChanged: (String newValue) {
-                              setState(() {
-                                //newContact.favoriteColor = newValue;
-                                _sexo = newValue;
-                                state.didChange(newValue);
-                              });
-                            },
-                            items: _sexos.map((String value) {
-                              return new DropdownMenuItem(
-                                value: value,
-                                child: new Text(value),
-                              );
-                            }).toList(),
-                          ),
-                        ),
-                      );
-                    },
-                  ),
+              new FormularioUIEleccionMultiple(_sexos, "Sexo", _entrevista, Icon(Icons.person_pin_circle),3),
 
-                   new TextFormField(
-                    decoration: const InputDecoration(
-                      icon: const Icon(Icons.phone),
-                      hintText: 'Ingresa un numero de celular',
-                      labelText: 'Celular',
-                    ),
-                    keyboardType: TextInputType.phone,
-                    inputFormatters: [
-                      WhitelistingTextInputFormatter.digitsOnly,
-                    ],
-                    onSaved: (val) => _celular = val,
-                  ),
-                   new TextFormField(
-                    decoration: const InputDecoration(
-                      icon: const Icon(Icons.cake),
-                      hintText: '',
-                      labelText: 'Edad',
-                    ),
-                    keyboardType: TextInputType.phone,
-                    inputFormatters: [
-                      WhitelistingTextInputFormatter.digitsOnly,
-                    ],
-                    onSaved: (val) => _edad = val,
-                  ),
-                   new TextFormField(
-                    decoration: const InputDecoration(
-                      icon: const Icon(Icons.business_center),
-                      hintText: '',
-                      labelText: 'Ocupacion',
-                    ),
-                    keyboardType: TextInputType.emailAddress,
-                    onSaved: (val) => _ocupacion = val,
-                  ),
+              new FormularioUINumeros( 'Ingresa un numero de celular', 'Celular', _entrevista, Icon(Icons.phone), 4),
 
+              new FormularioUINumeros('', 'Edad', _entrevista, Icon(Icons.cake), 5),
 
-                  new Padding(
-            padding:  EdgeInsets.all(MediaQuery.of(context).size.width * .02), // Añade espacio entre los textos
-            ),
+              new FormularioUITexto("", 'Ocupacion', _entrevista, Icon(Icons.business_center), 6),
 
-                   Align(alignment: Alignment.centerLeft,
-                child: FittedBox(fit:BoxFit.scaleDown, child: new Text("Situación:", style: TextStyle(fontSize: MediaQuery.of(context).size.width * .07, fontWeight: FontWeight.bold, color: Color(0xff4D4D4D)))),
-                ),
-                new Padding(
-            padding:  EdgeInsets.all(MediaQuery.of(context).size.width * .01), // Añade espacio entre los textos
-            ),
+              new FormularioUITextoInformativo("Situación:", Color(0xff4D4D4D)),
 
+              new  FormularioUIEleccionMultiple(_siOnoOpciones, '¿Posee servicio de energía eléctrica?', _entrevista, Icon(Icons.power), 7),
 
-             new FormField(
-                    builder: (FormFieldState state) {
-                      return InputDecorator(
-                        decoration: InputDecoration(
-                          icon: const Icon(Icons.power),
-                          labelText: '¿Posee servicio de energía eléctrica?',
-                        ),
-                        isEmpty: _electricidad == '',
-                        child: new DropdownButtonHideUnderline(
-                          child: new DropdownButton(
-                            value: _electricidad,
-                            isDense: true,
-                            onChanged: (String newValue) {
-                              setState(() {
-                                //newContact.favoriteColor = newValue;
-                                _electricidad = newValue;
-                                state.didChange(newValue);
-                              });
-                            },
-                            items: _colors.map((String value) {
-                              return new DropdownMenuItem(
-                                value: value,
-                                child: new Text(value),
-                              );
-                            }).toList(),
-                          ),
-                        ),
-                      );
-                    },
-                  ),
+              new FormularioUIEleccionMultiple(_siOnoOpciones, '¿Posee servicio de Gas Natural?', _entrevista, Icon(Icons.restaurant), 8),
 
-                  new FormField(
-                    builder: (FormFieldState state) {
-                      return InputDecorator(
-                        decoration: InputDecoration(
-                          icon: const Icon(Icons.restaurant),
-                          labelText: '¿Posee servicio de Gas Natural?',
-                        ),
-                        isEmpty: _gas == '',
-                        child: new DropdownButtonHideUnderline(
-                          child: new DropdownButton(
-                            value: _gas,
-                            isDense: true,
-                            onChanged: (String newValue) {
-                              setState(() {
-                                //newContact.favoriteColor = newValue;
-                                _gas = newValue;
-                                state.didChange(newValue);
-                              });
-                            },
-                            items: _colors.map((String value) {
-                              return new DropdownMenuItem(
-                                value: value,
-                                child: new Text(value),
-                              );
-                            }).toList(),
-                          ),
-                        ),
-                      );
-                    },
-                  ),
+              new FormularioUIEleccionMultiple(_siOnoOpciones, '¿…De acueducto, Alcantarillado y Recolección de Basuras?', _entrevista, Icon(Icons.local_drink), 9),
+                   
+              new FormularioUIEleccionMultiple(_siOnoOpciones, '¿Posee servicio de Telefonía e Internet (fija o móvil) ?', _entrevista, Icon(Icons.wifi), 10),
 
-                  new FormField(
-                    builder: (FormFieldState state) {
-                      return InputDecorator(
-                        decoration: InputDecoration(
-                          icon: const Icon(Icons.local_drink),
-                          labelText: '¿…De acueducto, Alcantarillado y Recolección de Basuras?',
-                        ),
-                        isEmpty: _agua == '',
-                        child: new DropdownButtonHideUnderline(
-                          child: new DropdownButton(
-                            value: _agua,
-                            isDense: true,
-                            onChanged: (String newValue) {
-                              setState(() {
-                                //newContact.favoriteColor = newValue;
-                                _agua = newValue;
-                                state.didChange(newValue);
-                              });
-                            },
-                            items: _colors.map((String value) {
-                              return new DropdownMenuItem(
-                                value: value,
-                                child: new Text(value),
-                              );
-                            }).toList(),
-                          ),
-                        ),
-                      );
-                    },
-                  ),
-                   new FormField(
-                    builder: (FormFieldState state) {
-                      return InputDecorator(
-                        decoration: InputDecoration(
-                          icon: const Icon(Icons.wifi),
-                          labelText: '¿Posee servicio de Telefonía e Internet (fija o móvil) ?',
-                        ),
-                        isEmpty: _internet == '',
-                        child: new DropdownButtonHideUnderline(
-                          child: new DropdownButton(
-                            value: _internet,
-                            isDense: true,
-                            onChanged: (String newValue) {
-                              setState(() {
-                                //newContact.favoriteColor = newValue;
-                                _internet = newValue;
-                                state.didChange(newValue);
-                              });
-                            },
-                            items: _colors.map((String value) {
-                              return new DropdownMenuItem(
-                                value: value,
-                                child: new Text(value),
-                              );
-                            }).toList(),
-                          ),
-                        ),
-                      );
-                    },
-                  ),
-                  new TextFormField(
-                    decoration: const InputDecoration(
-                      icon: const Icon(Icons.local_hospital),
-                      hintText: 'Si no, escriba No',
-                      labelText: '¿Algúno tiene una enfermedad grave? ',
-                    ),
-                    keyboardType: TextInputType.emailAddress,
-                  ),
+              new FormularioUITexto('Si no, escriba No', '¿Algúno tiene una enfermedad grave? ', _entrevista, Icon(Icons.local_hospital), 11),
 
-                   new FormField(
-                    builder: (FormFieldState state) {
-                      return InputDecorator(
-                        decoration: InputDecoration(
-                          icon: const Icon(Icons.school),
-                          labelText: '¿Hay escuelas cercanas?',
-                        ),
-                        isEmpty: _escuelas == '',
-                        child: new DropdownButtonHideUnderline(
-                          child: new DropdownButton(
-                            value: _escuelas,
-                            isDense: true,
-                            onChanged: (String newValue) {
-                              setState(() {
-                                //newContact.favoriteColor = newValue;
-                                _escuelas = newValue;
-                                state.didChange(newValue);
-                              });
-                            },
-                            items: _colors.map((String value) {
-                              return new DropdownMenuItem(
-                                value: value,
-                                child: new Text(value),
-                              );
-                            }).toList(),
-                          ),
-                        ),
-                      );
-                    },
-                  ),
+              new FormularioUIEleccionMultiple(_siOnoOpciones, '¿Hay escuelas cercanas?', _entrevista, Icon(Icons.school), 12),
 
-                     new FormField(
-                    builder: (FormFieldState state) {
-                      return InputDecorator(
-                        decoration: InputDecoration(
-                          icon: const Icon(Icons.departure_board),
-                          labelText: '¿Hay formas de transportarse?',
-                        ),
-                        isEmpty: _transporte == '',
-                        child: new DropdownButtonHideUnderline(
-                          child: new DropdownButton(
-                            value: _transporte,
-                            isDense: true,
-                            onChanged: (String newValue) {
-                              setState(() {
-                                //newContact.favoriteColor = newValue;
-                                _transporte = newValue;
-                                state.didChange(newValue);
-                              });
-                            },
-                            items: _colors.map((String value) {
-                              return new DropdownMenuItem(
-                                value: value,
-                                child: new Text(value),
-                              );
-                            }).toList(),
-                          ),
-                        ),
-                      );
-                    },
-                  ),
+              new FormularioUIEleccionMultiple(_siOnoOpciones, '¿Hay formas de transportarse?', _entrevista, Icon(Icons.departure_board), 13),
 
-                   new FormField(
-                    builder: (FormFieldState state) {
-                      return InputDecorator(
-                        decoration: InputDecoration(
-                          icon: const Icon(Icons.book),
-                          labelText: '¿Medio de informacion que utilizan mas?',
-                        ),
-                        isEmpty: _informacion == '',
-                        child: new DropdownButtonHideUnderline(
-                          child: new DropdownButton(
-                            value: _informacion,
-                            isDense: true,
-                            onChanged: (String newValue) {
-                              setState(() {
-                                //newContact.favoriteColor = newValue;
-                                _informacion = newValue;
-                                state.didChange(newValue);
-                              });
-                            },
-                            items: _medios.map((String value) {
-                              return new DropdownMenuItem(
-                                value: value,
-                                child: new Text(value),
-                              );
-                            }).toList(),
-                          ),
-                        ),
-                      );
-                    },
-                  ),
+              new FormularioUIEleccionMultiple(_medios, '¿Medio de informacion que utilizan mas?', _entrevista, Icon(Icons.book), 14),
 
-                    new FormField(
-                    builder: (FormFieldState state) {
-                      return InputDecorator(
-                        decoration: InputDecoration(
-                          icon: const Icon(Icons.group),
-                          labelText: '¿Hay organizaciones de la sociedad civil? ',
-                        ),
-                        isEmpty: _sociedad == '',
-                        child: new DropdownButtonHideUnderline(
-                          child: new DropdownButton(
-                            value: _sociedad,
-                            isDense: true,
-                            onChanged: (String newValue) {
-                              setState(() {
-                                //newContact.favoriteColor = newValue;
-                                _sociedad = newValue;
-                                state.didChange(newValue);
-                              });
-                            },
-                            items: _colors.map((String value) {
-                              return new DropdownMenuItem(
-                                value: value,
-                                child: new Text(value),
-                              );
-                            }).toList(),
-                          ),
-                        ),
-                      );
-                    },
-                  ),
+              new FormularioUIEleccionMultiple(_siOnoOpciones, '¿Hay organizaciones de la sociedad civil? ', _entrevista, Icon(Icons.group), 15),
 
-                   new FormField(
-                    builder: (FormFieldState state) {
-                      return InputDecorator(
-                        decoration: InputDecoration(
-                          icon: const Icon(Icons.speaker),
-                          labelText: '¿Existen actividades culturales? ',
-                        ),
-                        isEmpty: _cultura == '',
-                        child: new DropdownButtonHideUnderline(
-                          child: new DropdownButton(
-                            value: _cultura,
-                            isDense: true,
-                            onChanged: (String newValue) {
-                              setState(() {
-                                //newContact.favoriteColor = newValue;
-                                _cultura = newValue;
-                                state.didChange(newValue);
-                              });
-                            },
-                            items: _colors.map((String value) {
-                              return new DropdownMenuItem(
-                                value: value,
-                                child: new Text(value),
-                              );
-                            }).toList(),
-                          ),
-                        ),
-                      );
-                    },
-                  ),
+              new FormularioUIEleccionMultiple(_siOnoOpciones, '¿Existen actividades culturales? ', _entrevista, Icon(Icons.speaker), 16),
 
-                  new TextFormField(
-                    decoration: const InputDecoration(
-                      icon: const Icon(Icons.comment),
-                      hintText: 'Si no, escriba No',
-                      labelText: 'Comentarios',
-                    ),
-                    keyboardType: TextInputType.emailAddress,
-                    onSaved: (val) => _comentarios = val,
-                  ),
+              new FormularioUITexto('Si no, escriba No', 'Comentarios', _entrevista, Icon(Icons.comment), 17),
 
-                  
-
-
-
-
-               
                   new Container(
                       padding: const EdgeInsets.only(left: 0, top: 20.0),
                       child: new RaisedButton(
@@ -508,83 +112,43 @@ class _MyHomePageState extends State<MyHomePage> {
     );
   }
 
+  //----------------------------------------------
+  // METODOS
+  //----------------------------------------------
+
+
+  /// Metodo que verifica si ya todo esta completo, de ser asi lo guarda en un archivo 
   void _guardar() {
   
     final FormState form = _formKey.currentState;
      if(form != null)
     form.save();
 
- 
-    if(_nombre1.length!=0)
+    if(_entrevista.verificar())
     {
-      
-      if(_nombreVereda.length != 0)
-      {
-        if(_nombre2.length != 0)
-        {
-           if(_sexo.length != 0)
-        {
-           if(_celular.length != 0)
-        {
-          if(_edad.length != 0)
-        {
-          if(_ocupacion.length != 0)
-        {
-          if(_electricidad.length != 0)
-        {
-          if(_gas.length != 0)
-        {
-          if(_agua.length != 0)
-        {
-          if(_internet.length != 0)
-        {
-          if(_escuelas.length != 0)
-        {
-          if(_transporte.length != 0)
-        {
-          if(_informacion.length != 0)
-        {
-          if(_sociedad.length != 0)
-        {
-
-          if(_cultura.length != 0)
-        {
-          //persistir();
+        _persistir("umm luego");
            Fluttertoast.showToast(
         msg: "Se guardo la encuesta",
         toastLength: Toast.LENGTH_SHORT,
         gravity: ToastGravity.CENTER,
-        timeInSecForIos: 1
-    );
-         //() => Navigator.of(context).push(new MaterialPageRoute(builder: (BuildContext context) => new PaginaInicial()));
-         return;
-        }
-        }
-        }
-        }
-        }
-        }
-        }
-        }
-        }
-        }
-        }
-        }
-        }
-        }
-      }
+        timeInSecForIos: 1);
+        Navigator.pop(context);
     }
-    _persistir("asd");
+    else{
+        _persistir("Sin nada");
   Fluttertoast.showToast(
         msg: "Faltan preguntas por contestar",
         toastLength: Toast.LENGTH_SHORT,
         gravity: ToastGravity.CENTER,
         timeInSecForIos: 1
     );
+    }
+
+ 
   }
 
   
-
+/// Metodo que guarda los datos en eun archivo
 _persistir(String text) async {
   final directory = await getApplicationDocumentsDirectory();
   final file = File('${directory.path}/data.txt');
