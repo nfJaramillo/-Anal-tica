@@ -70,7 +70,7 @@ class _PaginaFormularioState2 extends State<PaginaFormularioState> {
 
               new FormularioUINumeros( 'Ingresa un numero de celular', 'Celular', _entrevista, Icon(Icons.phone), 4),
 
-              new FormularioUINumeros('', 'Edad', _entrevista, Icon(Icons.cake), 5),
+              new FormularioUINumeros('En años', 'Edad', _entrevista, Icon(Icons.cake), 5),
 
               new FormularioUITexto("", 'Ocupación', _entrevista, Icon(Icons.business_center), 6),
 
@@ -94,9 +94,9 @@ class _PaginaFormularioState2 extends State<PaginaFormularioState> {
 
               new FormularioUIEleccionMultiple(_medios, '¿Medio mas utilizado?', _entrevista, Icon(Icons.book), 15),
 
-              new FormularioUIEleccionMultiple(_siOnoOpciones, '¿Hay organizaciones cciviles? ', _entrevista, Icon(Icons.group), 16),
+              new FormularioUIEleccionMultiple(_siOnoOpciones, '¿Hay organizaciones civiles?', _entrevista, Icon(Icons.group), 16),
 
-              new FormularioUIEleccionMultiple(_siOnoOpciones, '¿Hay actividades culturales? ', _entrevista, Icon(Icons.speaker), 17),
+              new FormularioUIEleccionMultiple(_siOnoOpciones, '¿Hay actividades culturales?', _entrevista, Icon(Icons.speaker), 17),
 
               new FormularioUITexto('Si no, escriba No', 'Comentarios', _entrevista, Icon(Icons.comment), 18),
 

@@ -44,24 +44,25 @@ Entrevista ()
 
 
 /// Metodo qeu recibe una posicion y un dato por parametro y los ubica
-/// 0: Las posiciones de cada dato son:
-/// 1: nombre1 
-/// 2: nombreVereda
-/// 3: nombre2
-/// 4: sexo
-/// 5: celular
-/// 6: edad
-/// 7: ocupacion
-/// 8: electricidad
-/// 9: gas
-/// 10: agua 
-/// 11: internet 
-/// 12: escuelas
-/// 13: transporte 
-/// 14: informacion
-/// 15: sociedad 
-/// 16: cultura
-/// 17: comentarios
+///  Las posiciones de cada dato son:
+/// 0: Nombre del jefe de vereda
+/// 1: Nombre de la vereda
+/// 2: Nombre de la persona visitada
+/// 3: Sexo
+/// 4: Celular
+/// 5: Edad
+/// 6: Ocupación
+/// 7: ¿Tienen energía eléctrica?
+/// 8: ¿Tienen gas natural?
+/// 9: ¿Tienen acueducto? 
+/// 10: ¿Tienen recolección de basuras? 
+/// 11: ¿Tienen internet?
+/// 12: ¿Tienen enfermedades graves? 
+/// 13: ¿Hay escuelas cercanas?
+/// 11: ¿Hay formas de transportarse? 
+/// 15: ¿Hay organizaciones civiles?
+/// 16: ¿Hay actividades culturales?
+/// 17: Comentarios
 void ingresarDato (int posicion, String dato)
 {
     _listaDeDatos[posicion] = dato;
@@ -128,10 +129,10 @@ void _formatear(String anterior)
   if(anterior == null)
   {
     persistencia =
-  "Nombre del jefe de vereda;Nombre de la vereda;Nombre de 1 de las personas visitadas;Sexo;Celular;Edad;Ocupacion;"
-  +"¿Posee servicio de energía eléctrica?;¿Posee servicio de Gas Natural?;¿Posee servicio de acueducto, Alcantarillado y Recolección de Basuras?;"
-  +"¿Posee servicio de Telefonía e Internet (fija o móvil) ?;¿Algúno tiene una enfermedad grave?;¿Hay escuelas cercanas?;¿Hay formas de transportarse?;"
-  +"¿Medio de informacion que utilizan mas usado?;¿Hay organizaciones de la sociedad civil?;¿Existen actividades culturales?;Comentarios" + '\n';
+  "Nombre del jefe de vereda;Nombre de la vereda;Nombre de la persona visitada;Sexo;Celular;Edad;Ocupación;"
+  +"¿Tienen energía eléctrica?;¿Tienen gas natural?;¿Tienen acueducto?;¿Tienen recolección de basuras?;"
+  +"¿Tienen internet?;¿Tienen enfermedades graves?;¿Hay escuelas cercanas?;¿Hay formas de transportarse?;"
+  +"¿Medio mas utilizado?;¿Hay organizaciones civiles?;¿Hay actividades culturales?;Comentarios" + '\n';
 
   anterior = "";
   }
@@ -144,7 +145,7 @@ void _formatear(String anterior)
   
   persistencia += (anterior  + nuevosDatos +'\n');
 
-  
+
 }
 
 
