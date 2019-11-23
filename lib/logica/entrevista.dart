@@ -29,9 +29,9 @@ bool existe = false;
 
 Entrevista ()
 {
-  _listaDeDatos = new List(18);
+  _listaDeDatos = new List(19);
 
-  for(int i = 0; i<18;i++)
+  for(int i = 0; i<19;i++)
   {
     _listaDeDatos[i]="";
   }
@@ -74,7 +74,7 @@ List<String> get darDatos => _listaDeDatos;
 bool verificar()
 {
   bool resp = true;
-  for(int i = 0; i < 17 && resp; i++)
+  for(int i = 0; i < 18 && resp; i++)
   {
     if(_listaDeDatos[i].length==0)
       resp = false;
@@ -136,7 +136,7 @@ void _formatear(String anterior)
   anterior = "";
   }
 
-  for (int i = 0; i<18;i++)
+  for (int i = 0; i<19;i++)
   {
     nuevosDatos += (_listaDeDatos[i] + ";");
   }
@@ -144,7 +144,7 @@ void _formatear(String anterior)
   
   persistencia += (anterior  + nuevosDatos +'\n');
 
-
+  
 }
 
 
