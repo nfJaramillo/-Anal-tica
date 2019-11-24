@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:Analitica/UI/botonUI.dart';
+import 'package:fluttertoast/fluttertoast.dart';
 import 'package:path_provider/path_provider.dart';
 import 'package:share_extend/share_extend.dart';
 
@@ -26,7 +27,7 @@ class PaginaDatosEstado extends State<PaginaDatos>
 
          FittedBox(fit:BoxFit.scaleDown, child: new Text("Datos recuperados", style: TextStyle(fontSize: MediaQuery.of(context).size.width * .1, fontWeight: FontWeight.bold, color: Color(0xff4D4D4D)))), // Pone el texto 
 
-        new BotonUI3(Color(0xff870839), new Text("Ver y editar"), null ), // Boton que lleva al formulario
+        new BotonUI3(Color(0xff870839), new Text("Ver y editar"), () => toast("Próximamente") ), // Boton que lleva al formulario
 
 
          new BotonUI3(Color(0xffC70C54), new Text("Compartir"), 
@@ -38,13 +39,24 @@ class PaginaDatosEstado extends State<PaginaDatos>
 
                   ShareExtend.share(path, "file");
                  },
-         ), // Boton que lleva al formulario
+         ), // Boton que comparte el csv
 
         
         
         ]
      )
   );
+}
+
+/// Metodo que proyecta un toast con un mensaje que recibe por parametro 
+ toast (String mensaje)
+{
+   Fluttertoast.showToast(
+        msg: mensaje,
+        toastLength: Toast.LENGTH_SHORT,
+        gravity: ToastGravity.CENTER,
+        timeInSecForIos: 1
+      );
 }
   
 }
