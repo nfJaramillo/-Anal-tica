@@ -1,8 +1,8 @@
 Pod::Spec.new do |s|
-  s.name                  = 'mascoapp'
+  s.name                  = 'Analitica'
   s.version               = '0.0.1'
   s.summary               = 'Flutter module'
-  s.description           = 'Flutter module - mascoapp'
+  s.description           = 'Flutter module - Analitica'
   s.homepage              = 'https://flutter.dev'
   s.license               = { :type => 'BSD' }
   s.author                = { 'Flutter Dev Team' => 'flutter-dev@googlegroups.com' }
