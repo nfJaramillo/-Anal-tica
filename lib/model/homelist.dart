@@ -19,12 +19,12 @@ class HomeList {
       nombreSeccion: "+Co Analítica",
     ),
     HomeList(
-      imagePath: 'assets/images/sections/analitica.png',
+      imagePath: 'assets/images/sections/mapa.jpg',
       navigateScreen: PaginaInicial(),
       nombreSeccion: "Mapa personal",
     ),
     HomeList(
-      imagePath: 'assets/images/sections/analitica.png',
+      imagePath: 'assets/images/sections/otros.jpg',
       navigateScreen: PaginaInicial(),
       nombreSeccion: "Otros",
     ),
