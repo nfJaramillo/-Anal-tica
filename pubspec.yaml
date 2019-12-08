@@ -1,5 +1,6 @@
-name: Analitica
-description: A new Flutter project.
+name: mascoapp
+description: An application that will allow your NGO to store data, maps, statistics, and much more, in order to serve and facilitate the impact with different vulnerable people.
+
 
 # The following defines the version and build number for your application.
 # A version number is three numbers separated by dots, like 1.2.43
@@ -46,6 +47,7 @@ dev_dependencies:
 # The following section is specific to Flutter.
 flutter:
   assets:
+    - assets/images/
     - assets/
 
   # The following line ensures that the Material Icons font is
@@ -83,3 +85,31 @@ flutter:
   #
   # For details regarding fonts from package dependencies,
   # see https://flutter.dev/custom-fonts/#from-packages
+
+  fonts:
+    - family: WorkSans
+      fonts:
+        - asset: assets/fonts/WorkSans-Regular.ttf
+        - asset: assets/fonts/WorkSans-Medium.ttf
+          weight: 500
+        - asset: assets/fonts/WorkSans-SemiBold.ttf
+          weight: 600
+        - asset: assets/fonts/WorkSans-Bold.ttf
+          weight: 700
+    - family: Roboto
+      fonts:
+        - asset: assets/fonts/Roboto-Bold.ttf
+        - asset: assets/fonts/Roboto-Regular.ttf
+        - asset: assets/fonts/Roboto-Medium.ttf
+          weight: 400
+    - family: Scene Std
+      fonts:
+        - asset: assets/fonts/SceneStd-Black.otf
+        - asset: assets/fonts/SceneStd-Bold.otf
+        - asset: assets/fonts/SceneStd-BoldItalic.otf
+    - family: Golden Gate Gothic OT
+      fonts:
+        - asset: assets/fonts/GoldenGGothOT.otf
+
+    module:
+      androidX: true
