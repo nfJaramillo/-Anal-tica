@@ -29,7 +29,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.red,
         textTheme: AppTheme.textTheme,
-        platform: TargetPlatform.android,
+        platform: TargetPlatform.iOS,
       ),
       home: NavigationHomeScreen(),
     );

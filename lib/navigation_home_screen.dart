@@ -54,7 +54,7 @@ class _NavigationHomeScreenState extends State<NavigationHomeScreen> {
       drawerIndex = drawerIndexdata;
       if (drawerIndex == DrawerIndex.HOME) {
         setState(() {
-          screenView = const MyHomePage();
+          screenView = MyHomePage();
         });
       } else if (drawerIndex == DrawerIndex.Help) {
         setState(() {
