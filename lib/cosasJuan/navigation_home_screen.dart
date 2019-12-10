@@ -1,11 +1,14 @@
-import 'package:Analitica/app_theme.dart';
-import 'package:Analitica/custom_drawer/drawer_user_controller.dart';
-import 'package:Analitica/custom_drawer/home_drawer.dart';
-import 'package:Analitica/feedback_screen.dart';
-import 'package:Analitica/help_screen.dart';
-import 'package:Analitica/home_screen.dart';
-import 'package:Analitica/invite_friend_screen.dart';
+
+
+import 'package:Analitica/cosasJuan/custom_drawer/home_drawer.dart';
 import 'package:flutter/material.dart';
+
+import 'app_theme.dart';
+import 'custom_drawer/drawer_user_controller.dart';
+import 'feedback_screen.dart';
+import 'help_screen.dart';
+import 'home_screen.dart';
+import 'invite_friend_screen.dart';
 
 class NavigationHomeScreen extends StatefulWidget {
   @override

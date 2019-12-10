@@ -1,22 +1,16 @@
 
 import 'package:flutter/material.dart';
-
-import 'package:flutter/services.dart';
 import 'package:Analitica/UI/botonUI.dart';
 import 'package:Analitica/paginas/paginaDatos.dart';
 
 import 'paginaFormulario.dart';
 
-class PaginaInicial extends StatelessWidget{
+class PaginaInicialAnalitica extends StatelessWidget{
   @override
 
-    // Fuerza a la aplicacion a arracar en modo vertical
+ 
     Widget build(BuildContext context){
-    SystemChrome.setPreferredOrientations([
-    DeviceOrientation.portraitUp,
     
-    ]);
-
     return new Material(color: Colors.white, // Un material es como una hoja de papel encima de la pantalla
      child: new Column(
         mainAxisAlignment: MainAxisAlignment.center, // Centra lo de la columna en el ejer y

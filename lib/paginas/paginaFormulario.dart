@@ -1,10 +1,11 @@
+import 'package:Analitica/paginas/paginaInicialAnalitica.dart';
 import 'package:flutter/material.dart';
 
 
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:Analitica/UI/formularioUI.dart';
 import 'package:Analitica/logica/entrevista.dart';
-import 'package:Analitica/paginas/paginaInicial.dart';
+
 
 
 
@@ -135,7 +136,7 @@ class _PaginaFormularioState2 extends State<PaginaFormularioState> {
         gravity: ToastGravity.CENTER,
         timeInSecForIos: 1);
         
-        Navigator.of(context).pushAndRemoveUntil(new MaterialPageRoute(builder: (BuildContext context) => new PaginaInicial()), (Route route) => route == null);
+        Navigator.of(context).pushAndRemoveUntil(new MaterialPageRoute(builder: (BuildContext context) => new PaginaInicialAnalitica()), (Route route) => route == null);
   }
 
     else{
