@@ -1,4 +1,5 @@
-import 'package:Analitica/paginas/paginaInicial.dart';
+
+import 'package:Analitica/paginas/paginaInicialAnalitica.dart';
 import 'package:flutter/widgets.dart';
 
 class HomeList {
@@ -15,17 +16,17 @@ class HomeList {
   static List<HomeList> homeList = [
     HomeList(
       imagePath: 'assets/images/sections/analitica.png',
-      navigateScreen: PaginaInicial(),
+      navigateScreen: PaginaInicialAnalitica(),
       nombreSeccion: "+Co Analítica",
     ),
     HomeList(
       imagePath: 'assets/images/sections/mapa.jpg',
-      navigateScreen: PaginaInicial(),
+      navigateScreen: PaginaInicialAnalitica(),
       nombreSeccion: "Mapa personal",
     ),
     HomeList(
       imagePath: 'assets/images/sections/otros.jpg',
-      navigateScreen: PaginaInicial(),
+      navigateScreen: PaginaInicialAnalitica(),
       nombreSeccion: "Otros",
     ),
   ];

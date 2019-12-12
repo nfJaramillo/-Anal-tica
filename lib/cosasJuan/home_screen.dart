@@ -1,6 +1,10 @@
-import 'package:Analitica/app_theme.dart';
+
+
+
 import 'package:flutter/material.dart';
-import 'model/homelist.dart';
+
+import 'app_theme.dart';
+import 'homelist.dart';
 
 class MyHomePage extends StatefulWidget {
   const MyHomePage({Key key}) : super(key: key);

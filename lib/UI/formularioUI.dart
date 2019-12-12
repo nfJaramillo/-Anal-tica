@@ -234,3 +234,90 @@ class FormularioUINumeros extends StatelessWidget {
     );
   }
 }
+
+ class FormularioUIEleccionBinaria extends StatefulWidget {
+
+  //----------------------------------------------
+  // ATRIBUTOS
+  //----------------------------------------------
+
+
+  /// Atributo que tiene el texto de la pregunta
+  final String _labelText;
+
+  /// Atributo que tiene la entrevista donde guardar el dato
+  final Entrevista _entrevista;
+
+  /// Atributo que tiene la posicion de la lista de la entrevista donde guardar el dato
+  final int _posicion;
+
+  /// Atributo que guarda el icono
+  final Icon _icono;
+
+
+  //----------------------------------------------
+  // CONSTRUCTOR
+  //----------------------------------------------
+
+  /// Contructor que recibe las opciones, el labelText, la entrevista, el icono y la posicion
+  FormularioUIEleccionBinaria( this._labelText, this._entrevista,  this._icono, this._posicion,);
+
+
+
+
+  //----------------------------------------------
+  // METODOS
+  //----------------------------------------------
+
+  @override
+  State createState() => FormularioUIEleccionBinariaState();
+    
+  }
+
+  class FormularioUIEleccionBinariaState extends State <FormularioUIEleccionBinaria>
+  {
+    
+   int gValue = 0;
+
+   setSelectedRadio(int e)
+   {
+     setState(() {
+       gValue = e;
+     });
+     String val = "";
+     val = ((e==1)? "Si":"No");
+     widget._entrevista.ingresarDato(widget._posicion, val);
+   }
+  @override
+  Widget build(BuildContext context) {
+        return new FormField(
+                    builder: (FormFieldState state) {
+                      return InputDecorator(
+                        decoration: InputDecoration(
+                          icon:  widget._icono,
+                          labelText: widget._labelText,
+                          labelStyle: TextStyle(fontSize: MediaQuery.of(context).size.width * .06),
+                        ),
+                         child: new ButtonBar(
+                          alignment: MainAxisAlignment.center,
+                           children: [
+                             Text("Si"),
+                             new Radio(value:1,groupValue: gValue, activeColor: Color(0xff870839), onChanged: (e) { setSelectedRadio(e); },),
+                             Text("No"),
+                             new Radio(value:2,groupValue: gValue, activeColor: Color(0xff870839), onChanged: (e) { setSelectedRadio(e);},),
+
+                           ],
+
+                         ),
+                      );
+                      
+                    },
+        );
+  }
+
+  something(e)
+  {
+
+  }
+
+  }
