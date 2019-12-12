@@ -10,6 +10,7 @@ class AppTheme {
   static const Color nearlyBlack = Color(0xFF540014);
   static const Color grey = Color(0xFF540014);
   static const Color dark_grey = Color(0xFF540014);
+  static const Color babyWhite = Color(0xFF69919);
 
   static const Color darkText = Color(0xFF540014);
   static const Color darkerText = Color(0xFF000000);

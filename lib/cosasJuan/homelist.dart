@@ -1,3 +1,4 @@
+/*
 
 import 'package:Analitica/paginas/paginaInicialAnalitica.dart';
 import 'package:flutter/widgets.dart';
@@ -31,3 +32,4 @@ class HomeList {
     ),
   ];
 }
+*/
