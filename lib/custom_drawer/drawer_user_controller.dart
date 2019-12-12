@@ -35,7 +35,7 @@ class _DrawerUserControllerState extends State<DrawerUserController>
   AnimationController animationController;
 
   double scrolloffset = 0.0;
-  bool isSetDawer = false;
+  bool isSetDrawer = false;
 
   @override
   void initState() {
@@ -47,38 +47,37 @@ class _DrawerUserControllerState extends State<DrawerUserController>
         duration: const Duration(milliseconds: 0), curve: Curves.fastOutSlowIn);
     scrollController =
         ScrollController(initialScrollOffset: widget.drawerWidth);
-    scrollController
-      ..addListener(() {
-        if (scrollController.offset <= 0) {
-          if (scrolloffset != 1.0) {
-            setState(() {
-              scrolloffset = 1.0;
-              try {
-                widget.drawerIsOpen(true);
-              } catch (_) {}
-            });
-          }
-          iconAnimationController.animateTo(0.0,
-              duration: const Duration(milliseconds: 0), curve: Curves.linear);
-        } else if (scrollController.offset > 0 &&
-            scrollController.offset < widget.drawerWidth) {
-          iconAnimationController.animateTo(
-              (scrollController.offset * 100 / (widget.drawerWidth)) / 100,
-              duration: const Duration(milliseconds: 0),
-              curve: Curves.linear);
-        } else if (scrollController.offset <= widget.drawerWidth) {
-          if (scrolloffset != 0.0) {
-            setState(() {
-              scrolloffset = 0.0;
-              try {
-                widget.drawerIsOpen(false);
-              } catch (_) {}
-            });
-          }
-          iconAnimationController.animateTo(1.0,
-              duration: const Duration(milliseconds: 0), curve: Curves.linear);
+    scrollController.addListener(() {
+      if (scrollController.offset <= 0) {
+        if (scrolloffset != 1.0) {
+          setState(() {
+            scrolloffset = 1.0;
+            try {
+              widget.drawerIsOpen(true);
+            } catch (_) {}
+          });
         }
-      });
+        iconAnimationController.animateTo(0.0,
+            duration: const Duration(milliseconds: 0), curve: Curves.linear);
+      } else if (scrollController.offset > 0 &&
+          scrollController.offset < widget.drawerWidth) {
+        iconAnimationController.animateTo(
+            (scrollController.offset * 100 / (widget.drawerWidth)) / 100,
+            duration: const Duration(milliseconds: 0),
+            curve: Curves.linear);
+      } else if (scrollController.offset <= widget.drawerWidth) {
+        if (scrolloffset != 0.0) {
+          setState(() {
+            scrolloffset = 0.0;
+            try {
+              widget.drawerIsOpen(false);
+            } catch (_) {}
+          });
+        }
+        iconAnimationController.animateTo(1.0,
+            duration: const Duration(milliseconds: 0), curve: Curves.linear);
+      }
+    });
     getInitState();
     super.initState();
   }
@@ -93,7 +92,7 @@ class _DrawerUserControllerState extends State<DrawerUserController>
       widget.drawerWidth,
     );
     setState(() {
-      isSetDawer = true;
+      isSetDrawer = true;
     });
     return true;
   }
@@ -110,7 +109,7 @@ class _DrawerUserControllerState extends State<DrawerUserController>
         //     ? PageScrollPhysics(parent: ClampingScrollPhysics())
         //     : PageScrollPhysics(parent: NeverScrollableScrollPhysics()),
         child: Opacity(
-          opacity: isSetDawer ? 1 : 0,
+          opacity: isSetDrawer ? 1 : 0,
           child: SizedBox(
             height: MediaQuery.of(context).size.height,
             width: MediaQuery.of(context).size.width + widget.drawerWidth,
