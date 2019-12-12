@@ -151,7 +151,7 @@ class PaginaInicialAnalitica extends StatelessWidget {
                 new Text("Iniciar nueva encuesta"),
                 () => Navigator.of(context).push(new MaterialPageRoute(
                     builder: (BuildContext context) =>
-                        new Analitycs()))), // Boton que lleva al formulario
+                        new PaginaFormulario()))), // Boton que lleva al formulario
 
             new BotonUI3(
                 Color(0xffC70C54),
