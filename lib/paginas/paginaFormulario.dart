@@ -139,7 +139,7 @@ class _PaginaFormularioState2 extends State<PaginaFormularioState> {
   // METODOS
   //----------------------------------------------
 
-  /// Metodo que verifica si ya todo esta completo, de ser asi lo guarda en un archivo
+  /// Metodo que verifica si ya to-do esta completo, de ser asi lo guarda en un archivo
   void _guardar() {
     final FormState form = _formKey.currentState;
     if (form != null) form.save();

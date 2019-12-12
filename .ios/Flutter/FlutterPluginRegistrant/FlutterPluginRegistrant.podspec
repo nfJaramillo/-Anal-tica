@@ -20,4 +20,5 @@ Depends on all your plugins, and provides a function to register them.
   s.dependency 'fluttertoast'
   s.dependency 'path_provider'
   s.dependency 'share_extend'
+  s.dependency 'slide_button'
 end

@@ -4,6 +4,7 @@ import 'package:Analitica/UI/botonUI.dart';
 import 'package:Analitica/paginas/paginaDatos.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:Analitica/paginas/paginaFormulario.dart';
+import 'package:Analitica/encuestaSinglepage.dart';
 
 void main() => runApp(MyApp());
 
@@ -147,10 +148,10 @@ class PaginaInicialAnalitica extends StatelessWidget {
 
             new BotonUI3(
                 Color(0xff870839),
-                new Text("Formularios"),
+                new Text("Iniciar nueva encuesta"),
                 () => Navigator.of(context).push(new MaterialPageRoute(
                     builder: (BuildContext context) =>
-                        new PaginaFormulario()))), // Boton que lleva al formulario
+                        new Analitycs()))), // Boton que lleva al formulario
 
             new BotonUI3(
                 Color(0xffC70C54),
