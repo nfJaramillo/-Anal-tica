@@ -295,13 +295,15 @@ class FormularioUINumeros extends StatelessWidget {
                       return InputDecorator(
                         decoration: InputDecoration(
                           icon:  widget._icono,
-                          labelText: widget._labelText,
-                          labelStyle: TextStyle(fontSize: MediaQuery.of(context).size.width * .06),
+                           contentPadding: EdgeInsets.all(20),
                         ),
-                         child: new ButtonBar(
+                         child: new Column(
+                           children: <Widget>[
+                             Text(widget._labelText,style: TextStyle(fontSize: MediaQuery.of(context).size.width * .045),),
+                             new ButtonBar(
                           alignment: MainAxisAlignment.center,
                            children: [
-                             Text("Si"),
+                             Text("Si", ),
                              new Radio(value:1,groupValue: gValue, activeColor: Color(0xff870839), onChanged: (e) { setSelectedRadio(e); },),
                              Text("No"),
                              new Radio(value:2,groupValue: gValue, activeColor: Color(0xff870839), onChanged: (e) { setSelectedRadio(e);},),
@@ -309,6 +311,8 @@ class FormularioUINumeros extends StatelessWidget {
                            ],
 
                          ),
+                           ],
+                         ) 
                       );
                       
                     },
