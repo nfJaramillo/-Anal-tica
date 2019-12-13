@@ -98,4 +98,7 @@ flutter:
       fonts:
         - asset: assets/fonts/GoldenGGothOT.otf
 
+  module:
+    androidX: true
+
  
