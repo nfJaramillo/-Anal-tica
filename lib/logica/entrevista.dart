@@ -131,8 +131,8 @@ void _formatear(String anterior)
     persistencia =
   "Nombre del jefe de vereda;Nombre de la vereda;Nombre de la persona visitada;Sexo;Celular;Edad;Ocupación;"
   +"¿Tienen energía eléctrica?;¿Tienen gas natural?;¿Tienen acueducto?;¿Tienen recolección de basuras?;"
-  +"¿Tienen internet?;¿Tienen enfermedades graves?;¿Hay escuelas cercanas?;¿Hay formas de transportarse?;"
-  +"¿Medio mas utilizado?;¿Hay organizaciones civiles?;¿Hay actividades culturales?;Comentarios" + '\n';
+  +"¿Tienen internet?;¿Hay escuelas cercanas?;¿Hay formas de transportarse?;¿Hay organizaciones civiles?;"
+  +"¿Hay actividades culturales?;¿Medio mas utilizado?;¿Tienen enfermedades graves?;Comentarios" + '\n';
 
   anterior = "";
   }
