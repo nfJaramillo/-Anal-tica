@@ -1,9 +1,6 @@
 import 'package:Analitica/app_theme.dart';
 import 'package:flutter/material.dart';
-import 'package:Analitica/UI/botonUI.dart';
-import 'package:Analitica/paginas/paginaDatos.dart';
 import 'package:fluttertoast/fluttertoast.dart';
-import 'package:Analitica/paginas/paginaFormulario.dart';
 
 /// This Widget is the main application widget.
 class Analitycs extends StatelessWidget {
@@ -125,7 +122,6 @@ class Pregunta6 extends StatelessWidget {
               side: BorderSide(color: Colors.white),
             ),
             onPressed: () {
-              bool r6 = true;
               Navigator.push(
                 context,
                 MaterialPageRoute(builder: (context) => Pregunta7()),
@@ -164,7 +160,6 @@ class Pregunta6 extends StatelessWidget {
                 borderRadius: new BorderRadius.circular(8.0),
                 side: BorderSide(color: Colors.white)),
             onPressed: () {
-              bool omitida6 = true;
               Navigator.push(
                 context,
                 MaterialPageRoute(builder: (context) => Pregunta7()),
@@ -211,7 +206,6 @@ class Pregunta7 extends StatelessWidget {
               side: BorderSide(color: Colors.white),
             ),
             onPressed: () {
-              bool r7 = true;
               Navigator.push(
                 context,
                 MaterialPageRoute(builder: (context) => Pregunta8()),
@@ -250,7 +244,6 @@ class Pregunta7 extends StatelessWidget {
                 borderRadius: new BorderRadius.circular(8.0),
                 side: BorderSide(color: Colors.white)),
             onPressed: () {
-              bool omitida7 = true;
               Navigator.push(
                 context,
                 MaterialPageRoute(builder: (context) => Pregunta8()),
@@ -296,7 +289,6 @@ class Pregunta8 extends StatelessWidget {
               side: BorderSide(color: Colors.white),
             ),
             onPressed: () {
-              bool r8 = true;
               Navigator.push(
                 context,
                 MaterialPageRoute(builder: (context) => Pregunta9()),
@@ -335,7 +327,6 @@ class Pregunta8 extends StatelessWidget {
                 borderRadius: new BorderRadius.circular(8.0),
                 side: BorderSide(color: Colors.white)),
             onPressed: () {
-              bool omitida8 = true;
               Navigator.push(
                 context,
                 MaterialPageRoute(builder: (context) => Pregunta9()),
@@ -381,7 +372,6 @@ class Pregunta9 extends StatelessWidget {
               side: BorderSide(color: Colors.white),
             ),
             onPressed: () {
-              bool r9 = true;
               Navigator.push(
                 context,
                 MaterialPageRoute(builder: (context) => Pregunta10()),
@@ -420,7 +410,6 @@ class Pregunta9 extends StatelessWidget {
                 borderRadius: new BorderRadius.circular(8.0),
                 side: BorderSide(color: Colors.white)),
             onPressed: () {
-              bool omitida9 = true;
               Navigator.push(
                 context,
                 MaterialPageRoute(builder: (context) => Pregunta10()),
@@ -466,7 +455,6 @@ class Pregunta10 extends StatelessWidget {
               side: BorderSide(color: Colors.white),
             ),
             onPressed: () {
-              bool r10 = true;
               Navigator.push(
                 context,
                 MaterialPageRoute(builder: (context) => Pregunta11()),
@@ -505,7 +493,6 @@ class Pregunta10 extends StatelessWidget {
                 borderRadius: new BorderRadius.circular(8.0),
                 side: BorderSide(color: Colors.white)),
             onPressed: () {
-              bool omitida10 = true;
               Navigator.push(
                 context,
                 MaterialPageRoute(builder: (context) => Pregunta11()),
@@ -551,7 +538,6 @@ class Pregunta11 extends StatelessWidget {
               side: BorderSide(color: Colors.white),
             ),
             onPressed: () {
-              bool r11 = true;
               Navigator.push(
                 context,
                 MaterialPageRoute(builder: (context) => Pregunta12()),
@@ -590,7 +576,6 @@ class Pregunta11 extends StatelessWidget {
                 borderRadius: new BorderRadius.circular(8.0),
                 side: BorderSide(color: Colors.white)),
             onPressed: () {
-              bool omitida11 = true;
               Navigator.push(
                 context,
                 MaterialPageRoute(builder: (context) => Pregunta12()),
@@ -636,7 +621,6 @@ class Pregunta12 extends StatelessWidget {
               side: BorderSide(color: Colors.white),
             ),
             onPressed: () {
-              bool r12 = true;
               Navigator.push(
                 context,
                 MaterialPageRoute(builder: (context) => Pregunta13()),
@@ -675,7 +659,6 @@ class Pregunta12 extends StatelessWidget {
                 borderRadius: new BorderRadius.circular(8.0),
                 side: BorderSide(color: Colors.white)),
             onPressed: () {
-              bool omitida12 = true;
               Navigator.push(
                 context,
                 MaterialPageRoute(builder: (context) => Pregunta13()),
@@ -721,7 +704,6 @@ class Pregunta13 extends StatelessWidget {
               side: BorderSide(color: Colors.white),
             ),
             onPressed: () {
-              bool r13 = true;
               Navigator.push(
                 context,
                 MaterialPageRoute(builder: (context) => Pregunta14()),
@@ -760,7 +742,7 @@ class Pregunta13 extends StatelessWidget {
                 borderRadius: new BorderRadius.circular(8.0),
                 side: BorderSide(color: Colors.white)),
             onPressed: () {
-              bool omitida13 = true;
+
               Navigator.push(
                 context,
                 MaterialPageRoute(builder: (context) => Pregunta14()),
@@ -806,7 +788,6 @@ class Pregunta14 extends StatelessWidget {
               side: BorderSide(color: Colors.white),
             ),
             onPressed: () {
-              bool r14 = true;
               Navigator.push(
                 context,
                 MaterialPageRoute(builder: (context) => Pregunta15()),
@@ -845,7 +826,6 @@ class Pregunta14 extends StatelessWidget {
                 borderRadius: new BorderRadius.circular(8.0),
                 side: BorderSide(color: Colors.white)),
             onPressed: () {
-              bool omitida14 = true;
               Navigator.push(
                 context,
                 MaterialPageRoute(builder: (context) => Pregunta15()),
@@ -891,7 +871,6 @@ class Pregunta15 extends StatelessWidget {
               side: BorderSide(color: Colors.white),
             ),
             onPressed: () {
-              bool r15 = true;
             },
             child: const Text('Sí',
                 style: TextStyle(
@@ -921,7 +900,6 @@ class Pregunta15 extends StatelessWidget {
                 borderRadius: new BorderRadius.circular(8.0),
                 side: BorderSide(color: Colors.white)),
             onPressed: () {
-              bool omitida15 = true;
             },
             child: const Text('Omitir',
                 style: TextStyle(
