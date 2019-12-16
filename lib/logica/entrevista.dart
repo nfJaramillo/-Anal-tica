@@ -75,7 +75,7 @@ List<String> get darDatos => _listaDeDatos;
 bool verificar()
 {
   bool resp = true;
-  for(int i = 0; i < 18 && resp; i++)
+  for(int i = 0; i < 4 && resp; i++)
   {
     if(_listaDeDatos[i].length==0)
       resp = false;
